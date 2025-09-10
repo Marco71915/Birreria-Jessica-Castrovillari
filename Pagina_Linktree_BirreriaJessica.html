@@ -52,7 +52,7 @@
   <img src="logo.png" alt="Logo Birreria Jessica" class="logo" />
 
   <!-- Bottone Menù -->
-  <a class="link-button" href="https://tinyurl.com/4cx2h292" target="_blank">
+  <a class="link-button" href="https://menubirreriajessica.my.canva.site/" target="_blank">
     <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Menu" />
     Menù
   </a>
@@ -69,35 +69,28 @@
     Seguici su Instagram
   </div>
 
-  <!-- Bottone Facebook -->
-  <div class="link-button" id="facebookButton" role="button" tabindex="0">
+  <!-- Bottone Facebook (link diretto al profilo web) -->
+  <a class="link-button" href="https://www.facebook.com/profile.php?id=100075978457319" target="_blank">
     <img class="icon" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
     Seguici su Facebook
-  </div>
+  </a>
 
   <script>
+    document.getElementById('instagramButton').addEventListener('click', function () {
+      openAppOrWeb('instagram://user?username=birreria_jessica', 'https://www.instagram.com/birreria_jessica/');
+    });
+
     // Funzione generica per tentare apertura app + fallback web
     function openAppOrWeb(appUrl, webUrl) {
       const start = Date.now();
-      // Prova ad aprire l'app
       window.location = appUrl;
 
-      // Dopo 1 secondo controlla se l'app non si è aperta (semplice fallback)
       setTimeout(function() {
         if (Date.now() - start < 1500) {
           window.open(webUrl, '_blank');
         }
       }, 1000);
     }
-
-    document.getElementById('facebookButton').addEventListener('click', function () {
-      openAppOrWeb('fb://page/100075978457319', 'https://www.facebook.com/profile.php?id=100075978457319');
-    });
-
-    document.getElementById('instagramButton').addEventListener('click', function () {
-      openAppOrWeb('instagram://user?username=birreria_jessica', 'https://www.instagram.com/birreria_jessica/');
-    });
   </script>
 </body>
 </html>
-
